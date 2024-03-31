@@ -15,9 +15,7 @@
     "aws-sdk": "^2.326.0"
   },
   "devDependencies": {
-    "@types/node": "^20.12.2",
-    "ask-sdk-local-debug": "^1.1.0",
-    "ask-sdk-test": "^2.7.0",
+    "@types/node": "^16.18.93",
     "mocha": "^6.2.2",
     "nodemon": "^3.1.0",
     "ts-node": "^10.9.2",
