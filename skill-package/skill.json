@@ -28,19 +28,24 @@
     },
     "manifestVersion": "1.0",
     "publishingInformation": {
+      "automaticClonedLocale": {
+        "locales": [
+          {
+            "source": "es-ES"
+          }
+        ]
+      },
       "distributionCountries": [],
       "isAvailableWorldwide": true,
       "locales": {
-        "de-DE": {
-          "description": "Sample Full Description",
-          "examplePhrases": [
-            "Alexa öffne hallo welt",
-            "hallo",
-            "hilfe"
-          ],
-          "keywords": [],
-          "name": "My Next Public Transport",
-          "summary": "Sample Short Description"
+        "es-ES": {
+          "name": "My Next Public Transport"
+        },
+        "es-US": {
+          "name": "My Next Public Transport"
+        },
+        "es-MX": {
+          "name": "My Next Public Transport"
         }
       },
       "testingInstructions": "Sample Testing Instructions."

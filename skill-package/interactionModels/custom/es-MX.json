@@ -15,26 +15,25 @@
           "samples": []
         },
         {
-          "slots": [],
-          "name": "HelloWorldIntent",
-          "samples": [
-            "hallo",
-            "wie geht\u0027s dir",
-            "sag hallo welt",
-            "sag hallo"
-          ]
-        },
-        {
           "name": "AMAZON.NavigateHomeIntent",
           "samples": []
         },
         {
           "name": "AMAZON.FallbackIntent",
           "samples": []
+        },
+        {
+          "slots": [],
+          "name": "MyNextTrain",
+          "samples": [
+            "Siguiente tren",
+            "Hay trenes",
+            "Alexa cuando es mi tren"
+          ]
         }
       ],
       "types": [],
-      "invocationName": "next train"
+      "invocationName": "cuando es mi siguiente tren"
     }
   }
 }
