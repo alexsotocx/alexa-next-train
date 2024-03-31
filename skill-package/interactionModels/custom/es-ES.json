@@ -1,0 +1,39 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "slots": [],
+          "name": "MyNextTrain",
+          "samples": [
+            "cuando es mi siguiente tren",
+            "a que horas es mi tren",
+            "cuando es mi tren"
+          ]
+        }
+      ],
+      "types": [],
+      "invocationName": "mi siguiente tren"
+    }
+  }
+}

@@ -8,11 +8,11 @@ exports.HelpIntentHandler = {
             && request.intent.name === 'AMAZON.HelpIntent';
     },
     handle(handlerInput) {
-        const speechText = 'You can ask me the weather!';
+        const speechText = 'Te dare la informacion de tu parada de tren!';
         return handlerInput.responseBuilder
             .speak(speechText)
             .reprompt(speechText)
-            .withSimpleCard('You can ask me the weather!', speechText)
+            .withSimpleCard('Preguntame: cuando es mi tren', speechText)
             .getResponse();
     },
 };

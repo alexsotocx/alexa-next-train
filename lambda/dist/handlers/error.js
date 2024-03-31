@@ -7,9 +7,10 @@ exports.ErrorHandler = {
     },
     handle(handlerInput, error) {
         console.log(`Error handled: ${error.message}`);
+        console.log(`Error handled: ${error.message}`);
         return handlerInput.responseBuilder
-            .speak('Sorry, I don\'t understand your command. Please say it again.')
-            .reprompt('Sorry, I don\'t understand your command. Please say it again.')
+            .speak('No entiendo tu comando. Por favor, repítelo.')
+            .reprompt('No entiendo tu comando. Por favor, repítelo.')
             .getResponse();
     }
 };

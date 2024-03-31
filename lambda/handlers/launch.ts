@@ -7,12 +7,12 @@ export const LaunchRequestHandler: RequestHandler = {
         return request.type === 'LaunchRequest';
     },
     handle(handlerInput: HandlerInput): Response | Promise<Response> {
-        const speechText = 'Welcome to your SDK weather skill. Ask me the weather!';
+        const speechText = 'Preguntame cuando es tu siguiente tren!';
 
         return handlerInput.responseBuilder
             .speak(speechText)
             .reprompt(speechText)
-            .withSimpleCard('Welcome to your SDK weather skill. Ask me the weather!', speechText)
+            .withSimpleCard('Preguntame cuando es tu siguiente tren!', speechText)
             .getResponse();
     },
 };
