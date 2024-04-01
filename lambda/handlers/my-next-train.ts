@@ -8,6 +8,7 @@ import { createAlexaResponseDeparture } from "../views/next-train.view";
 import { lastValueFrom, map } from "rxjs";
 
 const aubingStationId = 'de:09162:1730';
+const timezone = 'Europe/Berlin';
 
 export const MyNextTrainHandler: RequestHandler = {
     canHandle(handlerInput: HandlerInput): boolean {
@@ -24,7 +25,7 @@ export const MyNextTrainHandler: RequestHandler = {
         const departuresObservable = departureHandler.getDepartures(aubingStationId, ['Flughafen München', 'Ostbahnhof', 'Hauptbahnhof']);
 
         return lastValueFrom(departuresObservable.pipe(
-            map(departures => createAlexaResponseDeparture(departures)),
+            map(departures => createAlexaResponseDeparture(departures, timezone)),
             map((speechText) => {
                 return handlerInput.responseBuilder
                     .speak(speechText)

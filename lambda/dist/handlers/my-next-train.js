@@ -11,6 +11,7 @@ const departure_handler_1 = require("../services/departure.handler");
 const next_train_view_1 = require("../views/next-train.view");
 const rxjs_1 = require("rxjs");
 const aubingStationId = 'de:09162:1730';
+const timezone = 'Europe/Berlin';
 exports.MyNextTrainHandler = {
     canHandle(handlerInput) {
         const request = handlerInput.requestEnvelope.request;
@@ -23,7 +24,7 @@ exports.MyNextTrainHandler = {
         })));
         const departureHandler = new departure_handler_1.MVGDepartureAdapter(mvgService);
         const departuresObservable = departureHandler.getDepartures(aubingStationId, ['Flughafen München', 'Ostbahnhof', 'Hauptbahnhof']);
-        return (0, rxjs_1.lastValueFrom)(departuresObservable.pipe((0, rxjs_1.map)(departures => (0, next_train_view_1.createAlexaResponseDeparture)(departures)), (0, rxjs_1.map)((speechText) => {
+        return (0, rxjs_1.lastValueFrom)(departuresObservable.pipe((0, rxjs_1.map)(departures => (0, next_train_view_1.createAlexaResponseDeparture)(departures, timezone)), (0, rxjs_1.map)((speechText) => {
             return handlerInput.responseBuilder
                 .speak(speechText)
                 .withSimpleCard('Siguiente tren', speechText)
