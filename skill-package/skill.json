@@ -27,6 +27,22 @@
       }
     },
     "manifestVersion": "1.0",
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "containsAds": false,
+      "isChildDirected": false,
+      "isExportCompliant": true,
+      "locales": {
+        "es-ES": {},
+        "es-US": {},
+        "es-MX": {}
+      },
+      "shoppingKit": {
+        "isAmazonAssociatesOnAlexaEnabled": false,
+        "isShoppingActionsEnabled": false
+      },
+      "usesPersonalInfo": false
+    },
     "publishingInformation": {
       "automaticClonedLocale": {
         "locales": [
@@ -35,20 +51,52 @@
           }
         ]
       },
+      "automaticDistribution": {
+        "isActive": false
+      },
+      "category": "ORGANIZERS_AND_ASSISTANTS",
       "distributionCountries": [],
+      "distributionMode": "PUBLIC",
       "isAvailableWorldwide": true,
       "locales": {
         "es-ES": {
-          "name": "My Next Public Transport"
+          "description": "This is a personal project only destined to be used in my home, It allows us to ask Alexa when is our next train to the city, taking into account delays.\nNo account is needed\n\nWe just say in spanish \"Alexa, Abre mi siguiente tren\" and ask \"Cuándo es mi siguiente tren\" and we get an answer from it",
+          "examplePhrases": [
+            "Alexa, Abre mi siguiente tren",
+            "cuando es mi siguiente tren"
+          ],
+          "keywords": [],
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/8c0c/054828fcf52d41dda85adcf68031385b/APP_ICON_LARGE?versionId=JHo9MyWO.1zzSpthRp9QqIm2sv13M4we&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240401T153228Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604799&X-Amz-Credential=AKIAWBV6LQ4QKETUBC37%2F20240401%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=2423c40ed0cfcc824deed4363eb91f7557198cc43d500a8225a50a243910e98d",
+          "name": "My Next Public Transport",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/e219/2bd83b1384b846a2b86b1cc27ea8225a/APP_ICON?versionId=_FYR8lR985DfuC7wLsT5oKJ_MV7q82rp&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240401T153228Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604799&X-Amz-Credential=AKIAWBV6LQ4QKETUBC37%2F20240401%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=8d23c4547b2e149dbc873920e3fdb9418cd7cbe50eeb0af94fd4c5db466de426",
+          "summary": "Dira cuando es tu siguiente tren"
         },
         "es-US": {
-          "name": "My Next Public Transport"
+          "description": "This is a personal project only destined to be used in my home, It allows us to ask Alexa when is our next train to the city, taking into account delays.\nNo account is needed\n\nWe just say in spanish \"Alexa, Abre mi siguiente tren\" and ask \"Cuándo es mi siguiente tren\" and we get an answer from it",
+          "examplePhrases": [
+            "Alexa, Abre mi siguiente tren",
+            "cuando es mi siguiente tren"
+          ],
+          "keywords": [],
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/8c0c/054828fcf52d41dda85adcf68031385b/APP_ICON_LARGE?versionId=JHo9MyWO.1zzSpthRp9QqIm2sv13M4we&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240401T153228Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604799&X-Amz-Credential=AKIAWBV6LQ4QKETUBC37%2F20240401%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=2423c40ed0cfcc824deed4363eb91f7557198cc43d500a8225a50a243910e98d",
+          "name": "My Next Public Transport",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/e219/2bd83b1384b846a2b86b1cc27ea8225a/APP_ICON?versionId=_FYR8lR985DfuC7wLsT5oKJ_MV7q82rp&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240401T153228Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604799&X-Amz-Credential=AKIAWBV6LQ4QKETUBC37%2F20240401%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=8d23c4547b2e149dbc873920e3fdb9418cd7cbe50eeb0af94fd4c5db466de426",
+          "summary": "Dira cuando es tu siguiente tren"
         },
         "es-MX": {
-          "name": "My Next Public Transport"
+          "description": "This is a personal project only destined to be used in my home, It allows us to ask Alexa when is our next train to the city, taking into account delays.\nNo account is needed\n\nWe just say in spanish \"Alexa, Abre mi siguiente tren\" and ask \"Cuándo es mi siguiente tren\" and we get an answer from it",
+          "examplePhrases": [
+            "Alexa, Abre mi siguiente tren",
+            "cuando es mi siguiente tren"
+          ],
+          "keywords": [],
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/8c0c/054828fcf52d41dda85adcf68031385b/APP_ICON_LARGE?versionId=JHo9MyWO.1zzSpthRp9QqIm2sv13M4we&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240401T153228Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604799&X-Amz-Credential=AKIAWBV6LQ4QKETUBC37%2F20240401%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=2423c40ed0cfcc824deed4363eb91f7557198cc43d500a8225a50a243910e98d",
+          "name": "My Next Public Transport",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/e219/2bd83b1384b846a2b86b1cc27ea8225a/APP_ICON?versionId=_FYR8lR985DfuC7wLsT5oKJ_MV7q82rp&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240401T153228Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604799&X-Amz-Credential=AKIAWBV6LQ4QKETUBC37%2F20240401%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=8d23c4547b2e149dbc873920e3fdb9418cd7cbe50eeb0af94fd4c5db466de426",
+          "summary": "Dira cuando es tu siguiente tren"
         }
       },
-      "testingInstructions": "Sample Testing Instructions."
+      "testingInstructions": "{\"ask_dist_username\":\"\",\"ask_dist_password\":\"\",\"ask_dist_testing_instructions\":\"-\"}"
     }
   }
 }

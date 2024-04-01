@@ -26,14 +26,14 @@
           "slots": [],
           "name": "MyNextTrain",
           "samples": [
-            "Siguiente tren",
-            "Hay trenes",
-            "Alexa cuando es mi tren"
+            "cuando es mi siguiente tren",
+            "a que horas es mi tren",
+            "cuando es mi tren"
           ]
         }
       ],
       "types": [],
-      "invocationName": "cuando es mi siguiente tren"
+      "invocationName": "mi siguiente tren"
     }
   }
 }
