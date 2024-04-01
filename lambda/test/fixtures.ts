@@ -1,4 +1,4 @@
-import { MVGDepature } from "../../services/mvg.api";
+import { MVGDepature } from "../services/mvg.api";
 
 export const departetureFixture: MVGDepature = {
     "plannedDepartureTime": 1711967880000,
