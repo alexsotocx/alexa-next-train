@@ -7,12 +7,11 @@ export const LaunchRequestHandler: RequestHandler = {
         return request.type === 'LaunchRequest';
     },
     handle(handlerInput: HandlerInput): Response | Promise<Response> {
-        const speechText = 'Preguntame cuando es tu siguiente tren!';
+        const speechText = 'Pregúntame, Cuándo es tu siguiente tren?';
 
         return handlerInput.responseBuilder
             .speak(speechText)
             .reprompt(speechText)
-            .withSimpleCard('Preguntame cuando es tu siguiente tren!', speechText)
             .getResponse();
     },
 };

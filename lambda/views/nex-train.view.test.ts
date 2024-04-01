@@ -16,7 +16,7 @@ describe('NextTrainView', () => {
 
             const speechText = createAlexaResponseDeparture(departures);
 
-            expect(speechText).toEqual('El próximo tren en dirección Hauptbahnhof, sale a las 8:00:00 AM');
+            expect(speechText).toEqual('El próximo tren en dirección Hauptbahnhof, sale a las 8:00');
         });
 
         test('should return a message with the next train and delay', () => {
@@ -30,7 +30,7 @@ describe('NextTrainView', () => {
 
             const speechText = createAlexaResponseDeparture(departures);
 
-            expect(speechText).toEqual('El próximo tren en dirección Hauptbahnhof, sale a las 8:00:00 AM con un retraso de 5 minutos');
+            expect(speechText).toEqual('El próximo tren en dirección Hauptbahnhof, sale a las 8:00 con un retraso de 5 minutos');
         });
     });
 });
