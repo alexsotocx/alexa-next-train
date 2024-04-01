@@ -6,7 +6,7 @@ import { CancelAndStopIntentHandler } from "./handlers/cancel-stop";
 import { SessionEndedRequestHandler } from "./handlers/end-sesion";
 import { ErrorHandler } from "./handlers/error";
 
-exports.handler = SkillBuilders.custom()
+export const handler = SkillBuilders.custom()
   .addRequestHandlers(
     LaunchRequestHandler,
     MyNextTrainHandler,
