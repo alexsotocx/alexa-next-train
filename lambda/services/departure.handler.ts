@@ -1,10 +1,5 @@
-import { AxiosResponse } from "axios";
-import { Observable, map, of } from "rxjs";
-import { MVGDepature } from "./mvg.api";
-
-export interface IDepartureAPI {
-    getDepartures(stationId: string): Observable<AxiosResponse<MVGDepature[]>>;
-}
+import { Observable, map, of, throwError, timeout } from "rxjs";
+import { IMVGAPI } from "./mvg.api";
 
 export interface IDeparture {
     direction: string;
@@ -14,16 +9,16 @@ export interface IDeparture {
     delayInMinutes: number;
 }
 
-export class DepartureHandler {
-    constructor(private readonly api: IDepartureAPI) {}
+export class MVGDepartureAdapter {
+    constructor(private readonly api: IMVGAPI) {}
 
-    getDepartures(stationId: string, direction: string): Observable<IDeparture[]> {
+    getDepartures(stationId: string, direction: string[]): Observable<IDeparture[]> {
         return this.api.getDepartures(stationId).pipe(
             map(response => {
                 if (response.status === 200) return response.data;
                 throw new Error(`Error while fetching departures ${response.status}, ${response.data}`);
             }),
-            map(data => data.filter(dep => dep.destination === direction)),
+            map(data => data.filter(dep => direction.includes(dep.destination))),
             map(data => data.map(dep => ({
                 direction: dep.destination,
                 transportIdentifier: dep.label,

@@ -1,17 +1,17 @@
 import { describe, expect, test, jest } from '@jest/globals'
 
-import { DepartureHandler, IDepartureAPI } from './departure.handler'
+import { MVGDepartureAdapter } from './departure.handler'
 import { lastValueFrom, of } from 'rxjs';
 import { AxiosResponse } from 'axios';
-import { MVGDepature } from './mvg.api';
-import { departetureFixture } from '../handlers/test/fixtures';
+import { MVGDepature, IMVGAPI } from './mvg.api';
+import { departetureFixture } from '../test/fixtures';
 
 describe('DepartureHandler', () => {
-    const apiMock: jest.MockedObject<IDepartureAPI> = {
-        getDepartures: jest.fn()
+    const apiMock: jest.Mocked<IMVGAPI> = {
+        getDepartures: jest.fn(),
     };
 
-    const handler = new DepartureHandler(
+    const handler = new MVGDepartureAdapter(
         apiMock
     );
 
@@ -22,7 +22,7 @@ describe('DepartureHandler', () => {
                 status: 200,
             } as AxiosResponse<MVGDepature[]>));
 
-            await expect(lastValueFrom(handler.getDepartures('test', departetureFixture.destination))).resolves.toEqual([{
+            await expect(lastValueFrom(handler.getDepartures('test', [departetureFixture.destination]))).resolves.toEqual([{
                 direction: departetureFixture.destination,
                 transportIdentifier: departetureFixture.label,
                 departureTime: departetureFixture.plannedDepartureTime,
@@ -39,7 +39,7 @@ describe('DepartureHandler', () => {
                 status: 200,
             } as AxiosResponse<MVGDepature[]>));
 
-            await expect(lastValueFrom(handler.getDepartures('test', 'other'))).resolves.toEqual([]);
+            await expect(lastValueFrom(handler.getDepartures('test', ['other']))).resolves.toEqual([]);
         });
 
         describe('when api returns an error', () => {
@@ -49,7 +49,7 @@ describe('DepartureHandler', () => {
                     status: 500,
                 } as AxiosResponse<any>));
 
-                await expect(lastValueFrom(handler.getDepartures('test', departetureFixture.destination))).rejects.toThrowError();
+                await expect(lastValueFrom(handler.getDepartures('test', [departetureFixture.destination]))).rejects.toThrowError();
             });
         });
     });
