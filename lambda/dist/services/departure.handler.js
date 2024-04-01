@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DepartureHandler = void 0;
+exports.MVGDepartureAdapter = void 0;
 const rxjs_1 = require("rxjs");
-class DepartureHandler {
+class MVGDepartureAdapter {
     constructor(api) {
         this.api = api;
     }
@@ -11,7 +11,7 @@ class DepartureHandler {
             if (response.status === 200)
                 return response.data;
             throw new Error(`Error while fetching departures ${response.status}, ${response.data}`);
-        }), (0, rxjs_1.map)(data => data.filter(dep => dep.destination === direction)), (0, rxjs_1.map)(data => data.map(dep => ({
+        }), (0, rxjs_1.map)(data => data.filter(dep => direction.includes(dep.destination))), (0, rxjs_1.map)(data => data.map(dep => ({
             direction: dep.destination,
             transportIdentifier: dep.label,
             departureTime: dep.plannedDepartureTime,
@@ -20,4 +20,4 @@ class DepartureHandler {
         }))));
     }
 }
-exports.DepartureHandler = DepartureHandler;
+exports.MVGDepartureAdapter = MVGDepartureAdapter;

@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.handler = void 0;
 const ask_sdk_core_1 = require("ask-sdk-core");
 const launch_1 = require("./handlers/launch");
 const my_next_train_1 = require("./handlers/my-next-train");
