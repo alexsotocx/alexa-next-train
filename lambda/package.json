@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "build": "rm -rf ./dist && tsc"
+    "build": "rm -rf ./dist && tsc --project tsconfig.build.json"
   },
   "author": "Amazon Alexa",
   "license": "Apache License",

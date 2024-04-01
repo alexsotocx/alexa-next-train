@@ -8,10 +8,10 @@ exports.MyNextTrainHandler = {
             && request.intent.name === 'MyNextTrain';
     },
     handle(handlerInput) {
-        const speechText = 'The weather today is sunny.';
+        const speechText = 'Tu siguiente tren es en 10 min';
         return handlerInput.responseBuilder
             .speak(speechText)
-            .withSimpleCard('The weather today is sunny.', speechText)
+            .withSimpleCard('Tu siguiente tren es en 10 min', speechText)
             .getResponse();
     },
 };
