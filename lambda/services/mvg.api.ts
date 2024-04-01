@@ -1,4 +1,4 @@
-import { Observable } from "rxjs";
+import { Observable, throwError, timeout } from "rxjs";
 import axios, { AxiosResponse } from "axios";
 import { HttpService } from "./http.service";
 
@@ -23,10 +23,17 @@ export interface MVGDepature {
     stopPointGlobalId: string,
 }
 
-export class MVGService {
-    constructor(private readonly httpService: HttpService) {}
+export interface IMVGAPI {
+    getDepartures(stationId: string): Observable<AxiosResponse<MVGDepature[]>>;
+}
+
+export class MVGService implements IMVGAPI {
+    constructor(private readonly httpService: HttpService) { }
 
     getDepartures(stationId: string): Observable<AxiosResponse<MVGDepature[]>> {
-        return this.httpService.get<MVGDepature[]>(`/location/queryWeb?q=${stationId}`);
+        return this.httpService.get<MVGDepature[]>(`departure?globalId=${stationId}&limit=5`).pipe(timeout({
+            each: 3000,
+            with: () => throwError(() => new Error('Timeout while fetching departures')),
+        }));
     }
 }
