@@ -5,6 +5,6 @@
     ],
     "exclude": [
         "./**/*.test.ts",
-        "jest.config.js",
+        "./jest.config.js",
     ]
 }
