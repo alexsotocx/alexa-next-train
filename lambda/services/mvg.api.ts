@@ -1,6 +1,7 @@
 import { Observable, throwError, timeout } from "rxjs";
-import axios, { AxiosResponse } from "axios";
+import { AxiosResponse } from "axios";
 import { HttpService } from "./http.service";
+import { RESULT_LIMIT, TRANSPORT_TYPE} from '../constants'
 
 export interface MVGDepature {
     plannedDepartureTime: number,
@@ -33,9 +34,10 @@ export class MVGService implements IMVGAPI {
     getDepartures(stationId: string): Observable<AxiosResponse<MVGDepature[]>> {
         const searchParams = new URLSearchParams({
             globalId: stationId,
-            limit: '5',
-            transportTypes: 'SBAHN'
-        })
+            limit: RESULT_LIMIT.toString(),
+            transportTypes: TRANSPORT_TYPE.join(',')
+        });
+        
         return this.httpService.get<MVGDepature[]>(`/departure`, {
             params: searchParams,
         }).pipe(timeout({
