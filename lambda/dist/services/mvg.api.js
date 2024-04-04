@@ -7,7 +7,14 @@ class MVGService {
         this.httpService = httpService;
     }
     getDepartures(stationId) {
-        return this.httpService.get(`departure?globalId=${stationId}&limit=5`).pipe((0, rxjs_1.timeout)({
+        const searchParams = new URLSearchParams({
+            globalId: stationId,
+            limit: '5',
+            transportTypes: 'SBAHN'
+        });
+        return this.httpService.get(`/departure`, {
+            params: searchParams,
+        }).pipe((0, rxjs_1.timeout)({
             each: 3000,
             with: () => (0, rxjs_1.throwError)(() => new Error('Timeout while fetching departures')),
         }));

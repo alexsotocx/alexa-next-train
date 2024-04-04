@@ -31,7 +31,14 @@ export class MVGService implements IMVGAPI {
     constructor(private readonly httpService: HttpService) { }
 
     getDepartures(stationId: string): Observable<AxiosResponse<MVGDepature[]>> {
-        return this.httpService.get<MVGDepature[]>(`departure?globalId=${stationId}&limit=5`).pipe(timeout({
+        const searchParams = new URLSearchParams({
+            globalId: stationId,
+            limit: '5',
+            transportTypes: 'SBAHN'
+        })
+        return this.httpService.get<MVGDepature[]>(`/departure`, {
+            params: searchParams,
+        }).pipe(timeout({
             each: 3000,
             with: () => throwError(() => new Error('Timeout while fetching departures')),
         }));

@@ -22,7 +22,7 @@ describe('DepartureHandler', () => {
                 status: 200,
             } as AxiosResponse<MVGDepature[]>));
 
-            await expect(lastValueFrom(handler.getDepartures('test', [departetureFixture.destination]))).resolves.toEqual([{
+            await expect(lastValueFrom(handler.getDepartures('test'))).resolves.toEqual([{
                 direction: departetureFixture.destination,
                 transportIdentifier: departetureFixture.label,
                 departureTime: departetureFixture.plannedDepartureTime,
@@ -33,15 +33,6 @@ describe('DepartureHandler', () => {
             expect(apiMock.getDepartures).toBeCalledWith('test');
         });
 
-        test('should filter by direction', async () => {
-            apiMock.getDepartures.mockReturnValue(of({
-                data: [departetureFixture],
-                status: 200,
-            } as AxiosResponse<MVGDepature[]>));
-
-            await expect(lastValueFrom(handler.getDepartures('test', ['other']))).resolves.toEqual([]);
-        });
-
         describe('when api returns an error', () => {
             test('should throw an error', async () => {
                 apiMock.getDepartures.mockReturnValue(of({
@@ -49,7 +40,7 @@ describe('DepartureHandler', () => {
                     status: 500,
                 } as AxiosResponse<any>));
 
-                await expect(lastValueFrom(handler.getDepartures('test', [departetureFixture.destination]))).rejects.toThrowError();
+                await expect(lastValueFrom(handler.getDepartures('test'))).rejects.toThrowError();
             });
         });
     });

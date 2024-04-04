@@ -20,25 +20,19 @@ exports.MyNextTrainHandler = {
     },
     handle(handlerInput) {
         const mvgService = new mvg_api_1.MVGService(new http_service_1.HttpService(axios_1.default.create({
-            baseURL: 'https://www.mvg.de/api/fib/v2/',
+            baseURL: 'https://www.mvg.de/api/fib/v2',
         })));
         const departureHandler = new departure_handler_1.MVGDepartureAdapter(mvgService);
-        const departuresObservable = departureHandler.getDepartures(aubingStationId, ['Flughafen München', 'Ostbahnhof', 'Hauptbahnhof']);
-        return (0, rxjs_1.lastValueFrom)(departuresObservable.pipe((0, rxjs_1.map)(departures => {
-            if (departures.length === 0)
-                throw new Error('No hay trenes en la estación');
-            const speechText = [(0, next_train_view_1.createAlexaResponseDeparture)(departures[0], timezone)];
-            if (departures.length >= 2) {
-                speechText.push((0, next_train_view_1.createAlexaResponseDeparture)(departures[1], timezone));
-            }
-            return speechText;
-        }), (0, rxjs_1.map)((speechTexts) => {
-            return (0, next_train_view_1.concactResponses)(speechTexts);
-        }), (0, rxjs_1.map)((speechText) => {
+        const departuresObservable = departureHandler.getDepartures(aubingStationId);
+        return (0, rxjs_1.lastValueFrom)(departuresObservable.pipe((0, rxjs_1.map)(departures => departures.map((d) => (0, next_train_view_1.formatDeparture)(d, timezone)).join('\n')), (0, rxjs_1.map)((speechText) => {
             return handlerInput.responseBuilder
                 .speak(speechText)
-                .withSimpleCard('Siguiente tren', speechText)
+                .withSimpleCard('Siguiente trenes', speechText)
                 .getResponse();
+        }), (0, rxjs_1.catchError)((err) => {
+            return (0, rxjs_1.of)(handlerInput.responseBuilder
+                .speak(`Un error ha ocurrido: ${err.message}`)
+                .getResponse());
         })));
     },
 };

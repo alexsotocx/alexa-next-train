@@ -6,12 +6,12 @@ class MVGDepartureAdapter {
     constructor(api) {
         this.api = api;
     }
-    getDepartures(stationId, direction) {
+    getDepartures(stationId) {
         return this.api.getDepartures(stationId).pipe((0, rxjs_1.map)(response => {
             if (response.status === 200)
                 return response.data;
             throw new Error(`Error while fetching departures ${response.status}, ${response.data}`);
-        }), (0, rxjs_1.map)(data => data.filter(dep => direction.includes(dep.destination))), (0, rxjs_1.map)(data => data.map(dep => ({
+        }), (0, rxjs_1.map)(data => data.map(dep => ({
             direction: dep.destination,
             transportIdentifier: dep.label,
             departureTime: dep.plannedDepartureTime,
