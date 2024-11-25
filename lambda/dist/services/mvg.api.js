@@ -13,10 +13,10 @@ class MVGService {
             limit: constants_1.RESULT_LIMIT.toString(),
             transportTypes: constants_1.TRANSPORT_TYPE.join(',')
         });
-        return this.httpService.get(`/departure`, {
+        return this.httpService.get(`/departures`, {
             params: searchParams,
         }).pipe((0, rxjs_1.timeout)({
-            each: 3000,
+            each: 5000,
             with: () => (0, rxjs_1.throwError)(() => new Error('Timeout while fetching departures')),
         }));
     }

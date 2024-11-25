@@ -12,7 +12,7 @@ const rxjs_1 = require("rxjs");
 const next_train_view_1 = require("./next-train.view");
 function generateAlexaNextDeparture({ stationId, tz }) {
     const mvgService = new mvg_api_1.MVGService(new http_service_1.HttpService(axios_1.default.create({
-        baseURL: 'www.mvg.de/api/bgw-pt/v3',
+        baseURL: 'https://www.mvg.de/api/bgw-pt/v3',
     })));
     const departureHandler = new departure_handler_1.MVGDepartureAdapter(mvgService);
     const departuresObservable = departureHandler.getDepartures(stationId);

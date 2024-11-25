@@ -10,7 +10,7 @@ import { formatDeparture } from "./next-train.view";
 
 export function generateAlexaNextDeparture({ stationId, tz }: { stationId: string; tz: string; }): Observable<string> {
     const mvgService = new MVGService(new HttpService(axios.create({
-        baseURL: 'www.mvg.de/api/bgw-pt/v3',
+        baseURL: 'https://www.mvg.de/api/bgw-pt/v3',
     })));
 
     const departureHandler = new MVGDepartureAdapter(mvgService);

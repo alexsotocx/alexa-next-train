@@ -38,10 +38,10 @@ export class MVGService implements IMVGAPI {
             transportTypes: TRANSPORT_TYPE.join(',')
         });
         
-        return this.httpService.get<MVGDepature[]>(`/departure`, {
+        return this.httpService.get<MVGDepature[]>(`/departures`, {
             params: searchParams,
         }).pipe(timeout({
-            each: 3000,
+            each: 5000,
             with: () => throwError(() => new Error('Timeout while fetching departures')),
         }));
     }
